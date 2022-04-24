@@ -1,0 +1,58 @@
+    .educacion-experiencia {
+        padding-top: 1rem;
+        width: 95%;
+        margin: 0 auto;
+        border-radius: 1rem;
+        background-color: #FFFFFF;
+        padding-bottom: 1rem;
+        box-shadow: 1px 3px 3px #999;
+    }
+    
+    .caja-principal {
+        padding-top: 1rem;
+        border-radius: 10px;
+        padding-left: 1rem;
+        display: flex;
+        align-items: center;
+        color: #86868B;
+    }
+    
+    .imagen {
+        flex-shrink: 0;
+        width: 90px;
+    }
+    
+    .imagen img {
+        width: 100%;
+    }
+    
+    .tex {
+        width: 100%;
+    }
+    
+    .texto {
+        margin-left: 1rem;
+        width: 100%;
+        box-shadow: 1px 1px 1px #999;
+    }
+    
+    .titulo {
+        border-bottom: 0.5rem;
+        padding-left: 0.5rem;
+        text-align: left;
+        color: rgba(0, 0, 0, 0.89);
+        text-shadow: 1px 1.5px 1px rgba(0, 0, 0, 0.589);
+        box-shadow: 1px 1px 1px #999;
+        display: flex;
+    }
+    
+    h5 {
+        color: black;
+    }
+    
+    .btn-add {
+        font-size: 1.2rem;
+        margin: 0 0 0 auto;
+        padding-right: 1rem;
+        display: flex;
+    }

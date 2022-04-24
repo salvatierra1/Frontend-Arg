@@ -1,0 +1,67 @@
+.form {
+    background-color: rgb(13, 0, 29);
+    margin: auto;
+    width: 70%;
+    max-width: 26%;
+    box-shadow: azure;
+    text-align: center;
+    border-radius: 3%;
+}
+
+.titulo {
+    font-weight: 40%;
+    color: white;
+    padding-top: 2rem;
+    border-color: azure 1px;
+}
+
+.contenedor {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2.5rem;
+}
+
+.campos {
+    position: relative;
+    color: white;
+}
+
+.input {
+    width: 80%;
+    margin: 0 auto;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    outline: none;
+    border-bottom: 1px solid white;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: 1px white;
+}
+
+.label {
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+}
+
+.input::placeholder {
+    color: white;
+}
+
+.btn {
+    box-shadow: 1px 1px 1px 1px white;
+    text-align: center;
+    margin: 1rem auto;
+    color: white;
+}
+
+.btn-table {
+    text-align: center;
+}
+
+p {
+    color: red;
+    font-size: 0.8rem;
+}

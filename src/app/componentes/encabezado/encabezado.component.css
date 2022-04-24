@@ -1,0 +1,185 @@
+/*
+Navbar
+*/
+
+.navbar-container {
+    width: 100%;
+    text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    height: 5rem;
+    display: grid;
+    place-items: center;
+    box-shadow: 0px 6px 15px hsla(0, 0%, 0%, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar-center {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-center a {
+    text-decoration: none;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s all linear;
+    color: transparent;
+    background-image: linear-gradient(to left, #ffe600, #1d0c80, #049aff, #00ff6a, #FFD700);
+    background-clip: text;
+    animation: color 3s linear infinite;
+    background-size: 500%;
+}
+
+@keyframes color {
+    from {
+        background-position: 0% 50%;
+    }
+    to {
+        background-position: 100% 50%;
+    }
+}
+
+.navbar-center a:hover {
+    color: crimson;
+}
+
+.logo {
+    height: 30px;
+    width: 45px;
+    margin-right: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+#net-log {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#net-log i {
+    cursor: pointer;
+    transition: all 0.2s linear;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    transition: all 0.2s linear;
+    color: transparent;
+    background-image: linear-gradient(to left, #FFD700, #7B68EE, #3498db, #2ecc71, #FFD700);
+    background-clip: text;
+    animation: color 5s linear infinite;
+    background-size: 500%;
+}
+
+#net-log i:hover {
+    color: crimson;
+}
+
+#net-log span {
+    display: flex;
+    align-items: center;
+}
+
+#net-log span:hover {
+    color: crimson;
+}
+
+#net-log p:hover {
+    color: crimson !important;
+}
+
+#net-log span p {
+    cursor: pointer;
+    margin: 0 !important;
+    transition: all 0.2s linear;
+    color: transparent;
+    background-image: linear-gradient(to left, #FFD700, #7B68EE, #3498db, #2ecc71, #FFD700);
+    background-clip: text;
+    animation: color 5s linear infinite;
+    background-size: 500%;
+}
+
+
+/*
+Banner
+*/
+
+#perfil {
+    padding-top: 5rem;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.profile-header {
+    width: 100%;
+}
+
+.profile-header .profile-banner-container {
+    width: 100%;
+    background-color: brown;
+    height: 45vh;
+    position: relative;
+}
+
+.profile-banner-container .banner {
+    width: 100%;
+    height: 47vh;
+}
+
+.profile-banner-container .profile-img .image {
+    width: 180px;
+    height: 180px;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+
+/*
+Banner
+*/
+
+.profile-data {
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 0rem;
+    height: 30vh;
+    border-radius: 0px 0px 15px 15px;
+    background-color: white;
+    box-shadow: 1px 3px 3px #999;
+    margin-bottom: 1rem;
+}
+
+.biografia {
+    margin-top: 1rem;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    margin-bottom: 0rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0px 0px 15px 15px;
+    border-color: black 5px;
+    color: black;
+}
+
+.btn {
+    padding-top: 0rem;
+    margin: 1px;
+    margin-bottom: 0rem;
+    margin-left: 1px;
+    display: flex;
+}
+
+.btn .center {
+    margin: 0 0 0 auto;
+    font-size: 1.2rem;
+}

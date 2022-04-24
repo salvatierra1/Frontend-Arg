@@ -1,0 +1,28 @@
+<br>
+<section id="experiencias" class="violeta">
+    <div class="titulo">
+        <h4>Proyectos</h4>
+        <div class="btn-add" *ngIf="estaAuth">
+            <a href="#" target="_blank"><i class="fa-solid fa-plus"></i></a>
+        </div>
+    </div>
+    <ul>
+        <li *ngFor="let item of miPortfolio">
+            <div class="p-cont">
+                <div class="card" style="width: 15rem;">
+                    <img class="card-img-top" [src]="item.imagenUrl" alt="">
+                    <div class="card-body">
+                        <h5>{{item.nombre}}</h5>
+                        <p class="info-proyecto">{{item.informacion}}
+                        </p>
+                        <a href="https://github.com/salvatierra1/hotel-sistemaReservas" target="_blank" class="btn"><i class="fa-brands fa-github"></i></a>
+                        <p class="btn" *ngIf="estaAuth" (click)="deleteProyec(item.id)"><i class="fa-solid fa-trash"></i></p>
+                        <a href="" target="_blank" class="btn" *ngIf="estaAuth"><i class="fa-solid fa-pen-to-square"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+<br>

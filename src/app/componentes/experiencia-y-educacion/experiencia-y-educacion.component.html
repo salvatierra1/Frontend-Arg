@@ -1,0 +1,24 @@
+<br>
+<section class="educacion-experiencia">
+    <div class="titulo">
+        <h4>Educación</h4>
+        <div class="btn-add" *ngIf="estaAuth">
+            <a href="" target="_blank"><i class="fa-solid fa-plus"></i></a>
+        </div>
+    </div>
+    <ul>
+        <li *ngFor="let item of miPortfolio">
+            <div class="caja-principal">
+                <div class="imagen">
+                    <img [src]="item.imagenUrl" alt="">
+                </div>
+                <div class="texto">
+                    <h5>{{item.institucion}}</h5>
+                    <h6>-{{item.titulo}}</h6>
+                    <h6>-Inicio {{item.fechaInicio}}</h6>
+                    <h6>-Finalización {{item.fechaFinalizacion}}</h6>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>

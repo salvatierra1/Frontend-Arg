@@ -1,0 +1,150 @@
+:root {
+    --widt: ;
+}
+
+.section-title {
+    margin-left: 1rem;
+}
+
+.gris {
+    padding-top: 1rem;
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 1rem;
+    background-color: #FFFFFF;
+    box-shadow: 1px 3px 3px #999;
+}
+
+.css span,
+.bootstrap span {
+    width: 45%;
+}
+
+.github span,
+.angular span {
+    width: 75%;
+}
+
+.react span {
+    width: 60%;
+}
+
+.node span {
+    width: 50%;
+}
+
+.java span {
+    width: 99%;
+}
+
+@keyframes progres {
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.p-line span {
+    height: 100%;
+    background: #02f70e;
+    border-radius: 10px;
+    display: flex;
+    transform: scaleX(0);
+    transform-origin: right;
+    font: 10px bold;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    justify-content: center;
+}
+
+.html span {
+    width: 90;
+}
+
+.habilidad {
+    background-color: #FFFFFF;
+    display: block;
+    margin: 1px;
+}
+
+.habilidad:hover span {
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: progres 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+.p-line {
+    height: 15px;
+    width: 100%;
+    background-color: #a8a8a83a;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.p-line .tec {
+    padding-left: 0.2rem;
+    font-size: 40px;
+    width: 100px;
+}
+
+.tec2 {
+    padding-left: 0.2rem;
+    font-size: 30px;
+    width: 80px;
+    color: transparent;
+    background-color: crimson;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(255, 255, 255, .5) 25px, rgba(255, 255, 255, .5) 50px);
+    background-clip: text;
+    animation: color 50s linear infinite;
+    background-size: 200%;
+}
+
+.tec2:hover {
+    transform: scale(1.1);
+}
+
+@keyframes color {
+    from {
+        background-position: 0% 50%;
+    }
+    to {
+        background-position: 100% 50%;
+    }
+}
+
+h2 {
+    padding-top: 1rem;
+    margin-bottom: 6px;
+    color: #86868B;
+    font-size: 1.2rem;
+    padding-left: 0.2rem;
+}
+
+@keyframes text {
+    0% {
+        opacity: 0;
+        margin-bottom: -40px;
+    }
+}
+
+.colum {
+    padding-top: 1rem;
+    column-count: 1;
+    padding-bottom: 1rem;
+}
+
+.titulo {
+    border-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.89);
+    text-shadow: 1px 1.5px 1px rgba(0, 0, 0, 0.589);
+    box-shadow: 1px 1px 1px #999;
+    display: flex;
+}
+
+.btn-add {
+    font-size: 1.2rem;
+    margin: 0 0 0 auto;
+    padding-right: 1rem;
+    display: flex;
+}

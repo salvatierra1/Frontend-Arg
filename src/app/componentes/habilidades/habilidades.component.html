@@ -1,0 +1,23 @@
+<!-- ======= Skills ======= -->
+<br>
+<section class="gris">
+    <div class="titulo">
+        <h4>Habilidades</h4>
+        <div class="btn-add" *ngIf="estaAuth">
+            <a href="#" target="_blank"><i class="fa-solid fa-plus"></i></a>
+        </div>
+    </div>
+    <ul>
+        <li *ngFor="let item of miPortfolio">
+            <div class="colum">
+                <div class="card habilidad">
+                    <h2>{{item.nombre}}</h2>
+                    <i class="fa-brands fa-html5 tec2"></i>
+                    <div class="p-line html"><span class="cen">{{item.porcentaje}}</span></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- End Skills -->

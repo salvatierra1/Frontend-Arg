@@ -1,0 +1,48 @@
+<section>
+    <nav class="navbar-container">
+        <div class="navbar-center">
+            <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa" target="_blank">
+                <img class="logo" src="./assets/img/logo-argp.jpeg">
+                <span>
+                        Argentina Programa - <strong> #YoProgramo</strong>
+                </span>
+            </a>
+            <div id="net-log">
+                <a href="https://github.com/salvatierra1" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/victor-salvatierra/" target="_blank"><i class="fab fa-linkedin"></i></a>
+
+                <span *ngIf="!estaAuth">
+                    <p routerLink="/login">Login</p>
+                </span>
+
+                <span *ngIf="estaAuth" (click)="cerrarLogin()">
+                    <p>Logout</p>
+                </span>
+
+            </div>
+        </div>
+    </nav>
+    <article id="perfil">
+        <div class="profile-header">
+            <div class="profile-banner-container">
+                <img class="banner" src="./assets/img/port.jpg">
+                <div class="profile-img">
+                    <img class="image" src="./assets/img/perf.jpg">
+                </div>
+            </div>
+        </div>
+        <div class="profile-data">
+            <div class="biografia">
+                <h4>{{miPortfolio.nombre}}</h4>
+                <h4>{{miPortfolio.titulo}}</h4>
+                <a href="https://www.google.com/maps/place/Ushuaia,+Tierra+del+Fuego/@-54.806843,-68.3728433,12z/data=!3m1!4b1!4m5!3m4!1s0xbc4c22b5bad109bf:0x5498473dba43ebfc!8m2!3d-54.8019121!4d-68.3029511"><i class="fas fa-map-marker-alt"></i>{{miPortfolio?.ubicacion}}</a>
+            </div>
+
+            <div class="btn">
+                <button type="submit" class="btn btn-primary btn-sm">Tengo interés en</button>
+                <button type="submit" class="btn btn-primary btn-sm">Más</button>
+            </div>
+        </div>
+
+    </article>
+</section>

@@ -1,0 +1,82 @@
+.p-cont,
+.p-hab {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    padding: auto;
+    margin: auto;
+}
+
+.p-cont>.card {
+    margin: 20px;
+    background-color: white;
+    height: 450px;
+    font-size: 0.8rem;
+    text-align: justify;
+    box-shadow: 1px 3px 3px #999;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.btn {
+    width: 20%;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    margin-left: 1.3rem;
+    font-family: 'Roboto', sans-serif;
+    display: inline;
+    justify-content: space-between;
+}
+
+.btn:hover {
+    color: rgb(253, 253, 253);
+    background-color: crimson;
+}
+
+.violeta {
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    text-align: center;
+    color: #86868B;
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 1rem;
+    border-radius: 1rem;
+    padding-bottom: 2rem;
+    box-shadow: 1px 3px 3px #999;
+}
+
+.titulo {
+    border-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.89);
+    text-shadow: 1px 1.5px 1px rgba(0, 0, 0, 0.589);
+    box-shadow: 1px 1px 1px #999;
+    display: flex;
+}
+
+.card-img-top {
+    height: 200px;
+}
+
+.p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    font-weight: bolder;
+}
+
+h5 {
+    color: #1561F0;
+}
+
+.btn-add {
+    font-size: 1.2rem;
+    margin: 0 0 0 auto;
+    padding-right: 1rem;
+    display: flex;
+}
