@@ -1,12 +1,78 @@
 <section class="acerca-de">
-    <div class="titulo">
-        <h4>Acerca de</h4>
-        <div class="btn-edit" *ngIf="estaAuth">
-            <a href="" target="_blank"><i class="fa-solid fa-plus"></i></a>
+  <div class="titulo">
+    <h4>Acerca de</h4>
+    <div class="btn-bio">
+      <button class="btn-add" *ngIf="estaAuth && !miPortfolio?.length" data-bs-toggle="modal"
+        data-bs-target="#exampleModal4">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </div>
+  <!-- Modal post -->
+  <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Acerca</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <app-acerca-form></app-acerca-form>
+        </div>
+      </div>
     </div>
-    <div class="acerca">
-        <p>{{miPortfolio.informacion}}</p>
-    </div>
+  </div>
+  <!-- Modal put -->
+  <div class="modal fade" id="exampleModalEditAcerca" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Acerca</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="form" [formGroup]="miFormulario" (ngSubmit)="onEdit()" class="login-form">
 
+            <!-- Single Input 1 -->
+            <div class="contenedor">
+              <div class="informacion">
+
+                <!-- Validation -->
+                <div *ngIf="information.invalid && (information.dirty || information.touched)"
+                  class="validation-container">
+                  <div *ngIf="
+                        information.errors['required']
+                      ">
+                    Ingrese una information
+                  </div>
+                </div>
+                <!-- End -->
+                <p><textarea cols="60" rows="5" formControlName="information" name="information"
+                    placeholder="Informacion"></textarea></p>
+
+              </div>
+              <!-- Botones -->
+              <div class="btn-add">
+                <button class="btn" type="button" type="submit">
+                  Enviar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="acerca" *ngFor="let item of miPortfolio">
+    <p>{{item.information}}</p>
+    <div class="btn-lg">
+      <button class="btn-edit" (click)="editAcerca(item)" *ngIf="estaAuth && miPortfolio.length" data-bs-toggle="modal"
+        data-bs-target="#exampleModalEditAcerca"><i class="fa-solid fa-pen-to-square"></i>
+      </button>
+      <button class="btn-delete" *ngIf="estaAuth && miPortfolio?.length" (click)="deleteAcerca(item.id)"><i
+          class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+  </div>
 </section>

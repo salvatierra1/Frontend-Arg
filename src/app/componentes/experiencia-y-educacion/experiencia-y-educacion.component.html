@@ -1,24 +1,149 @@
 <br>
 <section class="educacion-experiencia">
-    <div class="titulo">
-        <h4>Educación</h4>
-        <div class="btn-add" *ngIf="estaAuth">
-            <a href="" target="_blank"><i class="fa-solid fa-plus"></i></a>
+  <div class="titulo">
+    <h4>Educación</h4>
+    <button class="btn-add" *ngIf="estaAuth" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
+  <!-- Modal post -->
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Educacion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <app-experiencia-educacion-form></app-experiencia-educacion-form>
+        </div>
+      </div>
     </div>
-    <ul>
-        <li *ngFor="let item of miPortfolio">
-            <div class="caja-principal">
-                <div class="imagen">
-                    <img [src]="item.imagenUrl" alt="">
+  </div>
+  <!-- Modal put -->
+  <div class="modal fade" id="exampleModalEditEducacion" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Educacion</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="form" [formGroup]="miFormulario" (ngSubmit)="onEdit()" class="login-form">
+
+            <!-- Single Input 1 -->
+            <div class="contenedor">
+              <div class="name">
+
+                <!-- Validation -->
+                <div *ngIf="institute.invalid && (institute.dirty || institute.touched)" class="validation-container">
+                  <div *ngIf="
+                              institute.errors['required']
+                            ">
+                    Ingrese un titulo
+                  </div>
                 </div>
-                <div class="texto">
-                    <h5>{{item.institucion}}</h5>
-                    <h6>-{{item.titulo}}</h6>
-                    <h6>-Inicio {{item.fechaInicio}}</h6>
-                    <h6>-Finalización {{item.fechaFinalizacion}}</h6>
+                <!-- End -->
+                <input class="input" type="text" id="institute" name="institute" formControlName="institute"
+                  placeholder="Instituto" />
+              </div>
+              <!-- Single Input 1 -->
+              <div class="singleInput">
+                <!-- Validation -->
+                <div *ngIf="title.invalid && (title.dirty || title.touched)" class="validation-container">
+                  <div *ngIf="
+                            title.errors['required']
+                            ">
+                    Ingrese una information
+                  </div>
                 </div>
+                <!-- End -->
+                <input class="input" type="text" id="title" name="information" formControlName="title"
+                  placeholder="Titulo" />
+              </div>
+              <!-- Single Input 1 -->
+              <div class="singleInput">
+
+                <!-- Validation -->
+                <div *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)" class="validation-container">
+                  <div *ngIf="
+                            startDate.errors['required']
+                            ">
+                    Ingrese una information
+                  </div>
+                </div>
+                <!-- End -->
+                <input class="input" type="text" id="startDate" name="startDate" formControlName="startDate"
+                  placeholder="aaaa-mm-dd" />
+              </div>
+
+              <!-- Single Input 1 -->
+              <div class="singleInput">
+
+                <!-- Validation -->
+                <div *ngIf="finishDate.invalid && (finishDate.dirty || finishDate.touched)"
+                  class="validation-container">
+                  <div *ngIf="
+                            finishDate.errors['required']
+                            ">
+                    Ingrese una information
+                  </div>
+                </div>
+                <!-- End -->
+                <input class="input" type="text" id="finishDate" name="finishDate" formControlName="finishDate"
+                  placeholder="aaaa-mm-dd" />
+              </div>
+              <!-- Single Input 1 -->
+              <div class="singleInput">
+
+                <!-- Validation -->
+                <div *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)" class="validation-container">
+                  <div *ngIf="
+                            imageUrl.errors['required']
+                            ">
+                    Ingrese una imageUrl
+                  </div>
+                </div>
+                <!-- End -->
+                <input class="input" type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl"
+                  placeholder="Url imagen" />
+              </div>
+              <!-- Botones -->
+
+              <div class="btn-add">
+                <button class="btn-sub" type="button" type="submit">
+                  Enviar
+                </button>
+              </div>
             </div>
-        </li>
-    </ul>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul>
+    <li *ngFor="let item of miPortfolio">
+      <div class="caja-principal">
+        <div class="imagen">
+          <img [src]="item.imageUrl" alt="">
+        </div>
+        <div class="texto">
+          <div class="btn">
+            <h5>{{item.institute}}</h5>
+            <button class="btn-delete" *ngIf="estaAuth" (click)="deleteEducacion(item.id)"><i
+                class="fa-solid fa-trash"></i>
+            </button>
+            <button class="btn-edit" (click)="editEducacion(item)" *ngIf="estaAuth" data-bs-toggle="modal"
+              data-bs-target="#exampleModalEditEducacion"><i class="fa-solid fa-pen-to-square"></i>
+            </button>
+          </div>
+          <h6>-{{item.title}}</h6>
+          <h6>-Inicio {{item.startDate}}</h6>
+          <h6>-Finalización {{item.finishDate}}</h6>
+        </div>
+      </div>
+    </li>
+  </ul>
+
 </section>

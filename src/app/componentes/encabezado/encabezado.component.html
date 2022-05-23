@@ -1,15 +1,17 @@
 <section>
     <nav class="navbar-container">
         <div class="navbar-center">
-            <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa" target="_blank">
+            <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
+                target="_blank">
                 <img class="logo" src="./assets/img/logo-argp.jpeg">
                 <span>
-                        Argentina Programa - <strong> #YoProgramo</strong>
+                    Argentina Programa - <strong> #YoProgramo</strong>
                 </span>
             </a>
             <div id="net-log">
                 <a href="https://github.com/salvatierra1" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/victor-salvatierra/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/victor-salvatierra/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
 
                 <span *ngIf="!estaAuth">
                     <p routerLink="/login">Login</p>
@@ -27,20 +29,112 @@
             <div class="profile-banner-container">
                 <img class="banner" src="./assets/img/port.jpg">
                 <div class="profile-img">
-                    <img class="image" src="./assets/img/perf.jpg">
+                    <img class="image" [src]="miPortfolio?.imageUrl">
                 </div>
             </div>
         </div>
         <div class="profile-data">
-            <div class="biografia">
-                <h4>{{miPortfolio.nombre}}</h4>
-                <h4>{{miPortfolio.titulo}}</h4>
-                <a href="https://www.google.com/maps/place/Ushuaia,+Tierra+del+Fuego/@-54.806843,-68.3728433,12z/data=!3m1!4b1!4m5!3m4!1s0xbc4c22b5bad109bf:0x5498473dba43ebfc!8m2!3d-54.8019121!4d-68.3029511"><i class="fas fa-map-marker-alt"></i>{{miPortfolio?.ubicacion}}</a>
+            <!-- Modal de Put -->
+            <div class="modal fade" id="exampleModalPerfil" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar Perfil</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form" [formGroup]="miFormulario" (ngSubmit)="onEdit()" class="login-form">
+
+                                <!-- Single Input 1 -->
+                                <div class="contenedor">
+                                    <div class="name">
+
+                                        <!-- Validation -->
+                                        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                            class="validation-container">
+                                            <div *ngIf="
+                                          name.errors['required']
+                                        ">
+                                                Ingrese un nombre
+                                            </div>
+                                        </div>
+                                        <!-- End -->
+                                        <input class="input" type="text" id="name" name="miFormulario"
+                                            formControlName="name" placeholder="Nombre" />
+                                    </div>
+                                    <!-- Single Input 1 -->
+                                    <div class="singleInput">
+
+                                        <!-- Validation -->
+                                        <div *ngIf="title.invalid && (title.dirty || title.touched)"
+                                            class="validation-container">
+                                            <div *ngIf="
+                                        title.errors['required']
+                                        ">
+                                                Ingrese un titutlo
+                                            </div>
+                                        </div>
+                                        <!-- End -->
+                                        <input class="input" type="text" id="title" name="title" formControlName="title"
+                                            placeholder="Titulo" />
+                                    </div>
+
+                                    <div class="singleInput">
+
+                                        <!-- Validation -->
+                                        <div *ngIf="location.invalid && (location.dirty || location.touched)"
+                                            class="validation-container">
+                                            <div *ngIf="
+                                        location.errors['required']
+                                        ">
+                                                Ingrese una location
+                                            </div>
+                                        </div>
+                                        <!-- End -->
+                                        <input class="input" type="text" id="location" name="location"
+                                            formControlName="location" placeholder="Ubicacion" />
+                                    </div>
+
+                                    <div class="singleInput">
+
+                                        <!-- Validation -->
+                                        <div *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)"
+                                            class="validation-container">
+                                            <div *ngIf="
+                                        imageUrl.errors['required']
+                                        ">
+                                                Ingrese una imageUrl
+                                            </div>
+                                        </div>
+                                        <!-- End -->
+                                        <input class="input" type="text" id="imageUrl" name="imageUrl"
+                                            formControlName="imageUrl" placeholder="Imagen" />
+                                    </div>
+                                    <!-- Botones -->
+                                    <div class="btn-add">
+                                        <button class="btn" type="button" type="submit">
+                                            Enviar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="btn">
-                <button type="submit" class="btn btn-primary btn-sm">Tengo interés en</button>
-                <button type="submit" class="btn btn-primary btn-sm">Más</button>
+            <div class="biografia">
+                <div class="btn-bio">
+                    <button class="btn-edit" *ngIf="estaAuth" (click)="editPerfil(miPortfolio)" data-bs-toggle="modal"
+                        data-bs-target="#exampleModalPerfil"><i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                </div>
+                <h4>{{miPortfolio?.name}}</h4>
+                <h4>{{miPortfolio?.title}}</h4>
+                <a
+                    href="https://www.google.com/maps/place/Ushuaia,+Tierra+del+Fuego/@-54.806843,-68.3728433,12z/data=!3m1!4b1!4m5!3m4!1s0xbc4c22b5bad109bf:0x5498473dba43ebfc!8m2!3d-54.8019121!4d-68.3029511"><i
+                        class="fas fa-map-marker-alt"></i>{{miPortfolio?.location}}</a>
             </div>
         </div>
 

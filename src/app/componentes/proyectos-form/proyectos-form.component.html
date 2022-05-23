@@ -1,0 +1,70 @@
+<form class="form" [formGroup]="miFormulario" (ngSubmit)="onSubmit()" class="login-form">
+
+  <!-- Single Input 1 -->
+  <div class="contenedor">
+    <div class="name">
+
+      <!-- Validation -->
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="validation-container">
+        <div *ngIf="
+              name.errors['required']
+            ">
+          Ingrese un titulo
+        </div>
+      </div>
+      <!-- End -->
+      <input class="input" type="text" id="name" name="name" formControlName="name" placeholder="Nombre" />
+    </div>
+    <!-- Single Input 1 -->
+    <div class="singleInput">
+
+      <!-- Validation -->
+      <div *ngIf="information.invalid && (information.dirty || information.touched)" class="validation-container">
+        <div *ngIf="
+            information.errors['required']
+            ">
+          Ingrese una information
+        </div>
+      </div>
+      <!-- End -->
+      <input class="input" type="text" id="information" name="information" formControlName="information"
+        placeholder="Informacion" />
+    </div>
+    <!-- Single Input 1 -->
+    <div class="singleInput">
+
+      <!-- Validation -->
+      <div *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)" class="validation-container">
+        <div *ngIf="
+            imageUrl.errors['required']
+            ">
+          Ingrese una imageUrl
+        </div>
+      </div>
+      <!-- End -->
+      <input class="input" type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl"
+        placeholder="Url imagen" />
+    </div>
+
+    <div class="singleInput">
+
+      <!-- Validation -->
+      <div *ngIf="repoUrl.invalid && (repoUrl.dirty || repoUrl.touched)" class="validation-container">
+        <div *ngIf="
+          repoUrl.errors['required']
+          ">
+          Ingrese una url
+        </div>
+      </div>
+      <!-- End -->
+      <input class="input" type="text" id="repoUrl" name="repoUrl" formControlName="repoUrl" placeholder="Url repo" />
+    </div>
+    <!-- Botones -->
+
+    <div class="btn-add">
+      <button class="btn" type="button" type="submit">
+        Enviar
+      </button>
+    </div>
+  </div>
+</form>

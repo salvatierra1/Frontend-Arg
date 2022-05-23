@@ -6,21 +6,21 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  estaAuth:boolean=false;
+  estaAuth:boolean;
   url:string = "http://localhost:8080/auth/signin";
 
   currentUserSubject: BehaviorSubject<any>;
 
   constructor(private http:HttpClient) { 
-
-  console.log("iniciando seccion");
-  
-  this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser') || '{}'))
-
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser') || '{}'))
+    if(localStorage.getItem("currentUser")){
+      this.estaAuth = true;
+    } else {
+      this.estaAuth = false;
+    }
   }
 
   IniciarSesion(credenciales:any):Observable<any>{
-
     return this.http.post(this.url, credenciales).pipe(map(data=>{
       localStorage.setItem('currentUser', JSON.stringify(data));
       this.currentUserSubject.next(data);
@@ -36,6 +36,4 @@ export class AuthService {
   cerrar(){
     localStorage.clear();
   }
-
-
 }

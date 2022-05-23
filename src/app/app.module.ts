@@ -19,7 +19,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './servicio/interceptor.service';
 import { PortfolioPerfilService } from './servicio/portfolio-perfil.service';
 import { PorfolioProyectoService } from './servicio/porfolio-proyecto.service';
-
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { ProyectosFormComponent } from './componentes/proyectos-form/proyectos-form.component';
+import { ExperienciaEducacionFormComponent } from './componentes/experiencia-educacion-form/experiencia-educacion-form.component';
+import { HabilidadesFormComponent } from './componentes/habilidades-form/habilidades-form.component';
+import { AcercaFormComponent } from './componentes/acerca-form/acerca-form.component';
 
 
 
@@ -32,7 +36,11 @@ import { PorfolioProyectoService } from './servicio/porfolio-proyecto.service';
     HabilidadesComponent,
     ProyectosComponent,
     LoginFormComponent,
-    HomeComponent
+    HomeComponent,
+    ProyectosFormComponent,
+    ExperienciaEducacionFormComponent,
+    HabilidadesFormComponent,
+    AcercaFormComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +48,17 @@ import { PorfolioProyectoService } from './servicio/porfolio-proyecto.service';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgCircleProgressModule.forRoot({
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+  
+    })
+ 
   ],
   providers: [PorfolioProyectoService, PortfolioPerfilService,{
     provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true

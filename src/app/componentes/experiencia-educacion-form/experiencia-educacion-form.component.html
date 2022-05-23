@@ -1,0 +1,86 @@
+<form class="form" [formGroup]="miFormulario" (ngSubmit)="onSubmit()" class="login-form">
+
+  <!-- Single Input 1 -->
+  <div class="contenedor">
+    <div class="name">
+
+      <!-- Validation -->
+      <div *ngIf="institute.invalid && (institute.dirty || institute.touched)" class="validation-container">
+        <div *ngIf="
+              institute.errors['required']
+            ">
+          Ingrese un titulo
+        </div>
+      </div>
+      <!-- End -->
+      <input class="input" type="text" id="institute" name="institute" formControlName="institute"
+        placeholder="Instituto" />
+    </div>
+    <!-- Single Input 1 -->
+    <div class="singleInput">
+      <!-- Validation -->
+      <div *ngIf="title.invalid && (title.dirty || title.touched)" class="validation-container">
+        <div *ngIf="
+            title.errors['required']
+            ">
+          Ingrese una information
+        </div>
+      </div>
+      <!-- End -->
+      <input class="input" type="text" id="title" name="information" formControlName="title" placeholder="Titulo" />
+    </div>
+    <!-- Single Input 1 -->
+    <div class="singleInput">
+
+      <!-- Validation -->
+      <div *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)" class="validation-container">
+        <div *ngIf="
+            startDate.errors['required']
+            ">
+          Ingrese una information
+        </div>
+      </div>
+      <!-- End -->
+      <input class="input" type="text" id="startDate" name="startDate" formControlName="startDate"
+        placeholder="aaaa-mm-dd" />
+    </div>
+
+    <!-- Single Input 1 -->
+    <div class="singleInput">
+
+      <!-- Validation -->
+      <div *ngIf="finishDate.invalid && (finishDate.dirty || finishDate.touched)" class="validation-container">
+        <div *ngIf="
+            finishDate.errors['required']
+            ">
+          Ingrese una information
+        </div>
+      </div>
+      <!-- End -->
+      <input class="input" type="text" id="finishDate" name="finishDate" formControlName="finishDate"
+        placeholder="aaaa-mm-dd" />
+    </div>
+    <!-- Single Input 1 -->
+    <div class="singleInput">
+
+      <!-- Validation -->
+      <div *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)" class="validation-container">
+        <div *ngIf="
+            imageUrl.errors['required']
+            ">
+          Ingrese una imageUrl
+        </div>
+      </div>
+      <!-- End -->
+      <input class="input" type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl"
+        placeholder="Url imagen" />
+    </div>
+    <!-- Botones -->
+
+    <div class="btn-add">
+      <button class="btn" type="button" type="submit">
+        Enviar
+      </button>
+    </div>
+  </div>
+</form>

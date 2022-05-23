@@ -1,28 +1,131 @@
 <br>
 <section id="experiencias" class="violeta">
-    <div class="titulo">
-        <h4>Proyectos</h4>
-        <div class="btn-add" *ngIf="estaAuth">
-            <a href="#" target="_blank"><i class="fa-solid fa-plus"></i></a>
+  <div class="titulo">
+    <h4>Proyectos</h4>
+    <button class="btn-add" *ngIf="estaAuth" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
+  <!-- Modal post -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Proyectos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <app-proyectos-form></app-proyectos-form>
+        </div>
+      </div>
     </div>
-    <ul>
-        <li *ngFor="let item of miPortfolio">
-            <div class="p-cont">
-                <div class="card" style="width: 15rem;">
-                    <img class="card-img-top" [src]="item.imagenUrl" alt="">
-                    <div class="card-body">
-                        <h5>{{item.nombre}}</h5>
-                        <p class="info-proyecto">{{item.informacion}}
-                        </p>
-                        <a href="https://github.com/salvatierra1/hotel-sistemaReservas" target="_blank" class="btn"><i class="fa-brands fa-github"></i></a>
-                        <p class="btn" *ngIf="estaAuth" (click)="deleteProyec(item.id)"><i class="fa-solid fa-trash"></i></p>
-                        <a href="" target="_blank" class="btn" *ngIf="estaAuth"><i class="fa-solid fa-pen-to-square"></i></a>
+  </div>
+  <!-- Modal put -->
+  <div class="modal fade" id="exampleModalEditProyecto" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Proyectos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="form" [formGroup]="miFormulario" (ngSubmit)="onEdit()" class="login-form">
 
-                    </div>
+            <!-- Single Input 1 -->
+            <div class="contenedor">
+              <div class="name">
+
+                <!-- Validation -->
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="validation-container">
+                  <div *ngIf="
+                              name.errors['required']
+                            ">
+                    Ingrese un titulo
+                  </div>
                 </div>
+                <!-- End -->
+                <input class="input" type="text" id="name" name="name" formControlName="name" placeholder="Nombre" />
+              </div>
+              <!-- Single Input 1 -->
+              <div class="singleInput">
+
+                <!-- Validation -->
+                <div *ngIf="information.invalid && (information.dirty || information.touched)"
+                  class="validation-container">
+                  <div *ngIf="
+                            information.errors['required']
+                            ">
+                    Ingrese una information
+                  </div>
+                </div>
+                <!-- End -->
+                <input class="input" type="text" id="information" name="information" formControlName="information"
+                  placeholder="Informacion" />
+              </div>
+              <!-- Single Input 1 -->
+              <div class="singleInput">
+
+                <!-- Validation -->
+                <div *ngIf="imageUrl.invalid && (imageUrl.dirty || imageUrl.touched)" class="validation-container">
+                  <div *ngIf="
+                            imageUrl.errors['required']
+                            ">
+                    Ingrese una imageUrl
+                  </div>
+                </div>
+                <!-- End -->
+                <input class="input" type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl"
+                  placeholder="Url imagen" />
+              </div>
+
+              <div class="singleInput">
+
+                <!-- Validation -->
+                <div *ngIf="repoUrl.invalid && (repoUrl.dirty || repoUrl.touched)" class="validation-container">
+                  <div *ngIf="
+                          repoUrl.errors['required']
+                          ">
+                    Ingrese una url
+                  </div>
+                </div>
+                <!-- End -->
+                <input class="input" type="text" id="repoUrl" name="repoUrl" formControlName="repoUrl"
+                  placeholder="Url repo" />
+              </div>
+              <!-- Botones -->
+
+              <div class="btn-add">
+                <button class="btn-sub" type="button" type="submit">
+                  Enviar
+                </button>
+              </div>
             </div>
-        </li>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <ul>
+      <li *ngFor="let item of miPortfolio">
+        <div class="p-cont">
+          <div class="card" style="width: 15rem;">
+            <img class="card-img-top" [src]="item.imageUrl" alt="">
+            <div class="card-body">
+              <h5>{{item.name}}</h5>
+              <p class="info-proyecto">{{item.information}}
+              </p>
+              <a href="{{item.repoUrl}}" target="_blank" class="btn"><i class="fa-brands fa-github"></i></a>
+              <button class="btn" *ngIf="estaAuth" (click)="deleteProyecto(item.id)"><i
+                  class="fa-solid fa-trash"></i></button>
+              <button *ngIf="estaAuth" (click)="editByIdProyecto(item)" class="btn" data-bs-toggle="modal"
+                data-bs-target="#exampleModalEditProyecto"><i class="fa-solid fa-pen-to-square"></i></button>
+            </div>
+          </div>
+        </div>
+      </li>
     </ul>
+  </div>
 </section>
 <br>

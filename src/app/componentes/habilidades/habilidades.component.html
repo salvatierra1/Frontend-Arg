@@ -1,23 +1,105 @@
 <!-- ======= Skills ======= -->
 <br>
 <section class="gris">
-    <div class="titulo">
-        <h4>Habilidades</h4>
-        <div class="btn-add" *ngIf="estaAuth">
-            <a href="#" target="_blank"><i class="fa-solid fa-plus"></i></a>
+  <div class="titulo">
+    <h4>Habilidades</h4>
+    <button class="btn-add" *ngIf="estaAuth" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </div>
+  <!-- Modal de Post -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Habilidades</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <app-habilidades-form></app-habilidades-form>
+        </div>
+      </div>
     </div>
-    <ul>
-        <li *ngFor="let item of miPortfolio">
-            <div class="colum">
-                <div class="card habilidad">
-                    <h2>{{item.nombre}}</h2>
-                    <i class="fa-brands fa-html5 tec2"></i>
-                    <div class="p-line html"><span class="cen">{{item.porcentaje}}</span></div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</section>
+  </div>
 
+  <!-- Modal de Put -->
+  <div class="modal fade" id="exampleModalEditHabilidad" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Habilidades</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="form" [formGroup]="miFormulario" (ngSubmit)="onEdit()" class="login-form">
+
+            <!-- Single Input 1 -->
+            <div class="contenedor">
+              <div class="name">
+
+                <!-- Validation -->
+                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="validation-container">
+                  <div *ngIf="
+                        name.errors['required']
+                      ">
+                    Ingrese un titulo
+                  </div>
+                </div>
+                <!-- End -->
+                <input class="input" type="text" id="name" name="miFormulario" formControlName="name"
+                  placeholder="Nombre" />
+              </div>
+              <!-- Single Input 1 -->
+              <div class="singleInput">
+
+                <!-- Validation -->
+                <div *ngIf="percentage.invalid && (percentage.dirty || percentage.touched)"
+                  class="validation-container">
+                  <div *ngIf="
+                      percentage.errors['required']
+                      ">
+                    Ingrese una percentage
+                  </div>
+                </div>
+                <!-- End -->
+                <input class="input" type="text" id="percentage" name="percentage" formControlName="percentage"
+                  placeholder="Porcentage" />
+              </div>
+              <!-- Botones -->
+              <div class="btn-add">
+                <button class="btn" type="button" type="submit">
+                  Enviar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul>
+    <li *ngFor="let item of miPortfolio">
+      <div class="colum">
+        <div class="card habilidad">
+          <div class="texto">
+            <h2>{{item.name}}</h2>
+            <div class="btn">
+              <h5>{{item.institute}}</h5>
+              <button class="btn-delete" *ngIf="estaAuth" (click)="deleteHabilidades(item.id)"><i
+                  class="fa-solid fa-trash"></i>
+              </button>
+              <button class="btn-edit" *ngIf="estaAuth" (click)="editHabilidad(item)" data-bs-toggle="modal"
+                data-bs-target="#exampleModalEditHabilidad"><i class="fa-solid fa-pen-to-square"></i>
+              </button>
+            </div>
+          </div>
+          <div class="p-line html">
+            <span class="cen" [ngStyle]="{'width.%': item.percentage}">{{item.percentage+"%"}}</span>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
 <!-- End Skills -->

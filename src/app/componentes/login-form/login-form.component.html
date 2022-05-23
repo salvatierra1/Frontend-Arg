@@ -3,9 +3,10 @@
     <h3 class="titulo">Login</h3>
     <div class="contenedor">
         <div class="campos">
-            <input type="text" formControlName="username" [ngClass]="{'is-invalid':Username?.errors && Username?.touched, 'is-valid':!Username?.errors && Username?.touched}" class="input" placeholder="Email">
+            <input type="text" formControlName="username"
+                [ngClass]="{'is-invalid':Username?.errors && Username?.touched, 'is-valid':!Username?.errors && Username?.touched}"
+                class="input" placeholder="Email">
             <span class="line"></span>
-
             <div *ngIf="Username?.errors  && Username?.touched">
                 <p *ngIf="Username?.hasError('required')" class="text-danger">
                     El email es requerido.
@@ -33,9 +34,3 @@
         <button class="btn" type="submit">Iniciar Sesión</button>
     </div>
 </form>
-
-
-<h1 *ngIf="miError!=200">Nombre de usuario incorrecto</h1>
-<h1 *ngIf="miError!=200">Password incorrecto</h1>
-
-<h1 *ngIf="authenticado">Iniciaste seccion</h1>

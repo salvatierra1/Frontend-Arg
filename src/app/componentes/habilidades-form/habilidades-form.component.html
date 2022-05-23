@@ -1,0 +1,40 @@
+<form class="form" [formGroup]="miFormulario" (ngSubmit)="onSubmit()" class="login-form">
+
+  <!-- Single Input 1 -->
+  <div class="contenedor">
+    <div class="name">
+
+      <!-- Validation -->
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="validation-container">
+        <div *ngIf="
+              name.errors['required']
+            ">
+          Ingrese un titulo
+        </div>
+      </div>
+      <!-- End -->
+      <input class="input" type="text" id="name" name="miFormulario" formControlName="name" placeholder="Nombre" />
+    </div>
+    <!-- Single Input 1 -->
+    <div class="singleInput">
+
+      <!-- Validation -->
+      <div *ngIf="percentage.invalid && (percentage.dirty || percentage.touched)" class="validation-container">
+        <div *ngIf="
+            percentage.errors['required']
+            ">
+          Ingrese una percentage
+        </div>
+      </div>
+      <!-- End -->
+      <input class="input" type="text" id="percentage" name="percentage" formControlName="percentage"
+        placeholder="Porcentage" />
+    </div>
+    <!-- Botones -->
+    <div class="btn-add">
+      <button class="btn" type="button" type="submit">
+        Enviar
+      </button>
+    </div>
+  </div>
+</form>

@@ -7,17 +7,21 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class PortfolioPerfilService {
+ 
   estaAuth:boolean;
   
-  url:string = "http://localhost:8080/perfil/";
+  url:string = "http://localhost:8080/profile/1";
  
    
   constructor(private http:HttpClient, private authsService:AuthService) { }
 
   obtenerDatos():Observable<any>{
+    return this.http.get<any>(this.url);
+  }
 
-    return this.http.get<any>(this.url + "2");
 
+  editPerfil(perfil:any){
+    return this.http.put<any>(this.url, perfil);
   }
  
 }
