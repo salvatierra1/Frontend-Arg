@@ -10,7 +10,7 @@ export class PortfolioPerfilService {
  
   estaAuth:boolean;
   
-  url:string = "http://localhost:8080/profile/1";
+  url:string = "https://fathomless-cliffs-73656.herokuapp.com/profile/1";
  
    
   constructor(private http:HttpClient, private authsService:AuthService) { }

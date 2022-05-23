@@ -9,7 +9,7 @@ import { Proyecto } from '../modelo/proyecto';
 })
 export class PorfolioProyectoService {
   
-  url:string = "http://localhost:8080/project/";
+  url:string = "https://fathomless-cliffs-73656.herokuapp.com/project/";
   
   constructor(private http:HttpClient) { }
 

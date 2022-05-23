@@ -14,7 +14,7 @@ export class PortfolioAcercaService {
   }
   
   
-  url:string = "http://localhost:8080/about/";
+  url:string = "https://fathomless-cliffs-73656.herokuapp.com/about/";
   constructor(private http:HttpClient) {
 
    }

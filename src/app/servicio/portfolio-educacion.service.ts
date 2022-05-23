@@ -9,7 +9,7 @@ import { Educacion } from '../modelo/educacion';
 })
 export class PortfolioEducacionService {
   
-  url:string = "http://localhost:8080/education/";
+  url:string = "https://fathomless-cliffs-73656.herokuapp.com/education/";
   constructor(private http:HttpClient) { }
 
   public addEducacion(valores:FormGroup){
