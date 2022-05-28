@@ -4,6 +4,7 @@ import { Acerca } from 'src/app/modelo/acerca';
 import { AuthService } from 'src/app/servicio/auth.service';
 import { PortfolioAcercaService } from 'src/app/servicio/portfolio-acerca.service';
 import { PortfolioPerfilService } from 'src/app/servicio/portfolio-perfil.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-acerca-de',
@@ -72,7 +73,11 @@ export class AcercaDeComponent implements OnInit {
       next: (response) => {
         console.log(response);
         window.location.reload();
-
+        Swal.fire(
+          'Good job!',
+          'You clicked the button!',
+          'success'
+        )
       },
       error: (err) => {
         console.log(err);

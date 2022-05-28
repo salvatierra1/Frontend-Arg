@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PortfolioAcercaService } from 'src/app/servicio/portfolio-acerca.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-acerca-form',
@@ -38,7 +39,11 @@ export class AcercaFormComponent implements OnInit {
       next: (response) => {
         console.log(response);
         window.location.reload();
-
+        Swal.fire(
+          'Good job!',
+          'You clicked the button!',
+          'success'
+        )
       },
       error: (err) => {
         console.log(err);

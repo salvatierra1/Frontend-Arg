@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PortfolioEducacionService } from 'src/app/servicio/portfolio-educacion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-experiencia-educacion-form',
@@ -64,7 +65,11 @@ export class ExperienciaEducacionFormComponent implements OnInit {
       next: (response) => {
         console.log(response);
         window.location.reload();
-
+        Swal.fire(
+          'Good job!',
+          'You clicked the button!',
+          'success'
+        )
       },
       error: (err) => {
         console.log(err);

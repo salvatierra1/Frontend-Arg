@@ -48,7 +48,11 @@ export class HabilidadesComponent implements OnInit {
     this.serviceHabilidades.deleteHabilidades(id).subscribe({
       next: () => {
         window.location.reload();
-        alert("Delete con exito");
+        Swal.fire(
+          'Good job!',
+          'You clicked the button!',
+          'success'
+        )
       }
     });
   }

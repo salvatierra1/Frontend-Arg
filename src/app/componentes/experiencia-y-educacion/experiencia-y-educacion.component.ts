@@ -4,6 +4,7 @@ import { Educacion } from 'src/app/modelo/educacion';
 import { AuthService } from 'src/app/servicio/auth.service';
 import { PortfolioEducacionService } from 'src/app/servicio/portfolio-educacion.service';
 import { PortfolioPerfilService } from 'src/app/servicio/portfolio-perfil.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-experiencia-y-educacion',
@@ -83,7 +84,11 @@ export class ExperienciaYEducacionComponent implements OnInit {
       next: (response) => {
         console.log(response);
         window.location.reload();
-
+        Swal.fire(
+          'Good job!',
+          'You clicked the button!',
+          'success'
+        )
       },
       error: (err) => {
         console.log(err);
