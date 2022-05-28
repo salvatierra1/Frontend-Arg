@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/servicio/auth.service';
-
 import { PortfolioPerfilService } from 'src/app/servicio/portfolio-perfil.service';
 
 
@@ -38,10 +37,8 @@ export class EncabezadoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.servicePerfil.obtenerDatos().subscribe(data => {
+      this.servicePerfil.obtenerDatos().subscribe(data => {
       this.miPortfolio = data;
-
     });
 
     this.estaAuth = this.authService.estaAuth;

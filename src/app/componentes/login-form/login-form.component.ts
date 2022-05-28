@@ -49,6 +49,7 @@ export class LoginFormComponent implements OnInit {
     this.authService.IniciarSesion(this.miFormulario.value).subscribe(data => {
       this.ruta.navigate(['/home']);
     })
+  
   }
 }
 

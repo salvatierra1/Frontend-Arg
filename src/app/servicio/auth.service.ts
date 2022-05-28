@@ -27,6 +27,8 @@ export class AuthService {
       this.estaAuth = true;
       return data;
     }))
+  
+   
   }
 
   get UsuarioAutenticado(){

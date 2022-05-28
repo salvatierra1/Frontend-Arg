@@ -1,26 +1,27 @@
-<form class="form" [formGroup]="miFormulario" (ngSubmit)="onSubmit()" class="login-form">
+<div class="container">
+  <form class="form" [formGroup]="miFormulario" (ngSubmit)="onSubmit()" class="login-form">
+    <!-- Single Input 1 -->
+    <div class="contenedor">
+      <div class="informacion">
 
-  <!-- Single Input 1 -->
-  <div class="contenedor">
-    <div class="informacion">
-
-      <!-- Validation -->
-      <div *ngIf="information.invalid && (information.dirty || information.touched)" class="validation-container">
-        <div *ngIf="
+        <!-- Validation -->
+        <div *ngIf="information.invalid && (information.dirty || information.touched)" class="validation-container">
+          <div *ngIf="
               information.errors['required']
             ">
-          Ingrese una information
+            Ingrese una information
+          </div>
         </div>
+        <!-- End -->
+        <p><textarea cols="60" rows="5" formControlName="information" name="information"
+          placeholder="Informacion"></textarea></p>
       </div>
-      <!-- End -->
-      <input class="input" type="text" id="information" information="information" formControlName="information"
-        placeholder="Informacion" />
+      <!-- Botones -->
+      <div class="btn-add">
+        <button class="btn" type="button" type="submit">
+          Enviar
+        </button>
+      </div>
     </div>
-    <!-- Botones -->
-    <div class="btn-add">
-      <button class="btn" type="button" type="submit">
-        Enviar
-      </button>
-    </div>
-  </div>
-</form>
+  </form>
+</div>

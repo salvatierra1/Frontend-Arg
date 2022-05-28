@@ -1,4 +1,5 @@
 <br><br>
+<div class="container">
 <form class="form" [formGroup]="miFormulario" (ngSubmit)="onEnviar($event)">
     <h3 class="titulo">Login</h3>
     <div class="contenedor">
@@ -17,7 +18,7 @@
             </div>
         </div>
         <div class="campos">
-            <input type="text" formControlName="password" class="input" placeholder="Password">
+            <input type="password" formControlName="password" class="input" placeholder="Password">
             <span class="line"></span>
 
             <div *ngIf="Password?.errors  && Password?.touched">
@@ -34,3 +35,4 @@
         <button class="btn" type="submit">Iniciar Sesión</button>
     </div>
 </form>
+</div>
