@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Habilidades } from 'src/app/modelo/habilidades';
 import { PortfolioHabilidadesService } from 'src/app/servicio/portfolio-habilidades.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-habilidades-form',
@@ -53,11 +52,7 @@ export class HabilidadesFormComponent implements OnInit {
       next: (response) => {
         console.log(response);
         window.location.reload();
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        )
+        alert("Registro con exito")
       },
       error: (err) => {
         console.log(err);

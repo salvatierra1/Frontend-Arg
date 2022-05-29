@@ -48,11 +48,7 @@ export class HabilidadesComponent implements OnInit {
     this.serviceHabilidades.deleteHabilidades(id).subscribe({
       next: () => {
         window.location.reload();
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        )
+        alert("Delete con exito")
       }
     });
   }
@@ -91,9 +87,7 @@ export class HabilidadesComponent implements OnInit {
       next: (response) => {
         console.log(response);
         window.location.reload();
-        Swal.fire('Hey user!', 'You are the rockstar!', 'info');
-
-
+        alert("Registro con exito")
       },
       error: (err) => {
         console.log(err);
@@ -119,17 +113,8 @@ export class HabilidadesComponent implements OnInit {
     this.serviceHabilidades.editHabilidad(this.miFormulario.value).subscribe({
       next: (response) => {
         console.log(response);
-
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Se ctualizo con exito',
-          showConfirmButton: true,
-
-          timer: 150
-        })
         window.location.reload();
-
+        alert("Modificación con exito")
       },
       error: (err) => {
         console.log(err);

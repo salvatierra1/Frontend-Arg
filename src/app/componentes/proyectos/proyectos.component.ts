@@ -48,6 +48,7 @@ export class ProyectosComponent implements OnInit {
     this.serviceProyecto.deleteProyecto(id).subscribe({
       next: () => {
         window.location.reload();
+        alert("Delete con exito")
       }
     });
   }
@@ -95,11 +96,7 @@ export class ProyectosComponent implements OnInit {
       next: (response) => {
         console.log(response);
         window.location.reload();
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        )
+        alert("Modificación con exito")
       },
       error: (err) => {
         console.log(err);

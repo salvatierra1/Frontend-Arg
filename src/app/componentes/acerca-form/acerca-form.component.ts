@@ -39,11 +39,7 @@ export class AcercaFormComponent implements OnInit {
       next: (response) => {
         console.log(response);
         window.location.reload();
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        )
+        alert("Registro con exito")
       },
       error: (err) => {
         console.log(err);

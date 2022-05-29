@@ -84,11 +84,7 @@ export class ExperienciaYEducacionComponent implements OnInit {
       next: (response) => {
         console.log(response);
         window.location.reload();
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        )
+        alert("Modificación con exito")
       },
       error: (err) => {
         console.log(err);
@@ -111,6 +107,7 @@ export class ExperienciaYEducacionComponent implements OnInit {
     this.serviceEducacion.deleteEducacion(id).subscribe({
       next: () => {
         window.location.reload();
+        alert("Delete con exito")
       }
     });
   }

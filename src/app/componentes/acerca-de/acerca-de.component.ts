@@ -73,11 +73,7 @@ export class AcercaDeComponent implements OnInit {
       next: (response) => {
         console.log(response);
         window.location.reload();
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        )
+        alert("Modificación con exito")
       },
       error: (err) => {
         console.log(err);

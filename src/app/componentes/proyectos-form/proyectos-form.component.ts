@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PorfolioProyectoService } from 'src/app/servicio/porfolio-proyecto.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-proyectos-form',
@@ -58,11 +57,7 @@ export class ProyectosFormComponent implements OnInit {
       next: (response) => {
         console.log(response);
         window.location.reload();
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        )
+        alert("Registro con exito")
       },
       error: (err) => {
         console.log(err);
