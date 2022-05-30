@@ -47,7 +47,9 @@ export class LoginFormComponent implements OnInit {
   onEnviar(event: Event) {
     event.preventDefault;
     this.authService.IniciarSesion(this.miFormulario.value).subscribe(data => {
+      window.location.reload();
       this.ruta.navigate(['/home']);
+      alert("Inicio de sección con exito")
     })
   
   }
