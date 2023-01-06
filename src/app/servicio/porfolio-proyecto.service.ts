@@ -9,7 +9,7 @@ import { Proyecto } from '../modelo/proyecto';
 })
 export class PorfolioProyectoService {
   
-  url:string = "https://fathomless-cliffs-73656.herokuapp.com/project/";
+  url:string = "web-production-ae15.up.railway.app/project/";
   
   constructor(private http:HttpClient) { }
 

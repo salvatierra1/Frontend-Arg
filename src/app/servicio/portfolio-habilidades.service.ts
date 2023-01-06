@@ -10,7 +10,7 @@ import { Habilidades } from '../modelo/habilidades';
 export class PortfolioHabilidadesService {
   responseGet:any;
   editFormulario:boolean=false;
-  url:string = "https://fathomless-cliffs-73656.herokuapp.com/skills/";
+  url:string = "web-production-ae15.up.railway.app/skills/";
   
   constructor(private http:HttpClient) { }
 

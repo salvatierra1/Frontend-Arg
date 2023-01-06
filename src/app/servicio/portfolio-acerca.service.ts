@@ -14,7 +14,7 @@ export class PortfolioAcercaService {
   }
   
   
-  url:string = "https://fathomless-cliffs-73656.herokuapp.com/about/";
+  url:string = "web-production-ae15.up.railway.app/about/";
   constructor(private http:HttpClient) {
 
    }
