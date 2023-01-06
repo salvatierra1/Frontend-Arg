@@ -9,7 +9,7 @@ import { Educacion } from '../modelo/educacion';
 })
 export class PortfolioEducacionService {
   
-  url:string = "web-production-ae15.up.railway.app/education/";
+  url:string = "https://web-production-ae15.up.railway.app/education/";
   constructor(private http:HttpClient) { }
 
   public addEducacion(valores:FormGroup){

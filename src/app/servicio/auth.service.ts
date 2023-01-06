@@ -7,7 +7,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 })
 export class AuthService {
   estaAuth:boolean;
-  url:string = "web-production-ae15.up.railway.app/auth/signin";
+  url:string = "https://web-production-ae15.up.railway.app/auth/signin";
 
   currentUserSubject: BehaviorSubject<any>;
 

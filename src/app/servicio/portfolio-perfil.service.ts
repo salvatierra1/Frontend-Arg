@@ -10,7 +10,7 @@ export class PortfolioPerfilService {
  
   estaAuth:boolean;
   
-  url:string = "web-production-ae15.up.railway.app/profile/1";
+  url:string = "https://web-production-ae15.up.railway.app/profile/1";
  
    
   constructor(private http:HttpClient, private authsService:AuthService) { }

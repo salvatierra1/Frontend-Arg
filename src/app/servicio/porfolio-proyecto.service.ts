@@ -9,7 +9,7 @@ import { Proyecto } from '../modelo/proyecto';
 })
 export class PorfolioProyectoService {
   
-  url:string = "web-production-ae15.up.railway.app/project/";
+  url:string = "https://web-production-ae15.up.railway.app/project/";
   
   constructor(private http:HttpClient) { }
 

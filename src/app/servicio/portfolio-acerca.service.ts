@@ -14,7 +14,7 @@ export class PortfolioAcercaService {
   }
   
   
-  url:string = "web-production-ae15.up.railway.app/about/";
+  url:string = "https://web-production-ae15.up.railway.app/about/";
   constructor(private http:HttpClient) {
 
    }
